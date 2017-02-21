@@ -65,6 +65,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+	<Compile Include="db_features\Column.cs" />
     <Compile Include="db_features\DbStructure.cs" />
     <Compile Include="db_features\Table.cs" />
     <Compile Include="CreateConnectionUserControl.xaml.cs">

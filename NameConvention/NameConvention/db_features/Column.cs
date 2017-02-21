@@ -21,18 +21,5 @@ namespace NameConvention.db_features
         {
             _name = name;
         }
-
-        public void Rename(string newName, SqlConnection conn)
-        {
-            string QueryString = "";
-            SqlCommand command = new SqlCommand(QueryString, conn);
-            try
-            {
-                conn.Open();
-                command.ExecuteNonQuery();
-                conn.Close();
-            }
-            catch (Exception ex) { }
-        }
     }
 }
