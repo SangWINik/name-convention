@@ -1,8 +1,13 @@
-﻿<Window x:Class="NameConvention.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        xmlns:local="clr-namespace:NameConvention" x:Class="NameConvention.MainWindow"
+        Title="NameConvention" Height="550" Width="800"
+        Icon="../Images/icon.ico">
+    <Grid Background="WhiteSmoke">
+        <local:MenuUserControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="800"/>
+        <StackPanel Margin="0,24,0,0">
+            <local:CreateConnectionUserControl HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto" Height="Auto"/>
+        </StackPanel>
     </Grid>
 </Window>
