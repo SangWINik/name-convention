@@ -32,9 +32,9 @@ namespace NameConvention
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             _mainWindow = (MainWindow)Window.GetWindow(this);
-            _mainWindow.generalFrame.Navigate(new TableUserControl());
             _mainWindow.Structure = new DbStructure();
             _mainWindow.Structure.FillStructure(Connector.GetConnection(NameTextBox.Text, PasswordTextBox.Text, DBTextBox.Text));
+            _mainWindow.generalFrame.Navigate(new TableUserControl(_mainWindow.Structure));
         }
     }
 }

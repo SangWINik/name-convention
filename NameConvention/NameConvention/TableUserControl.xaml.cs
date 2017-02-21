@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NameConvention.db_features;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,15 @@ namespace NameConvention
     /// </summary>
     public partial class TableUserControl : UserControl
     {
-        public TableUserControl()
+        DbStructure structure;
+
+        public TableUserControl(DbStructure _structure)
         {
             InitializeComponent();
+            structure = _structure;
+
+            for (int i = 0; i < structure.Tables.Count; i++)
+                ListTables.Items.Add(structure.Tables[i].Name);
         }
     }
 }
