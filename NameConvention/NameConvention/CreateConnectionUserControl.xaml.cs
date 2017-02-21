@@ -33,6 +33,8 @@ namespace NameConvention
         {
             _mainWindow = (MainWindow)Window.GetWindow(this);
             _mainWindow.generalFrame.Navigate(new TableUserControl());
+            _mainWindow.Structure = new DbStructure();
+            _mainWindow.Structure.FillStructure(Connector.GetConnection(NameTextBox.Text, PasswordTextBox.Text, DBTextBox.Text));
         }
     }
 }

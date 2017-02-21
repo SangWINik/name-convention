@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NameConvention.db_features;
 
 namespace NameConvention
 {
@@ -20,6 +21,8 @@ namespace NameConvention
     /// </summary>
     public partial class MainWindow : Window
     {
+        public DbStructure Structure;
+
         public MainWindow()
         {
             InitializeComponent();
