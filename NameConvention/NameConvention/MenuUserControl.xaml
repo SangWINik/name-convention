@@ -5,10 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NameConvention"
              mc:Ignorable="d" 
-             d:DesignHeight="Auto" d:DesignWidth="Auto">
+             d:DesignHeight="Auto" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="MenuItem">
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <DockPanel>
-            <Menu DockPanel.Dock="Top">
+            <Menu DockPanel.Dock="Top" Background="Gainsboro" Padding="2">
                 <MenuItem Header="Файл">
                     <MenuItem Header="_Підключитися до бази даних"/>
                     <Separator />
