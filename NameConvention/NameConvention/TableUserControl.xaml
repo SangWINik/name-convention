@@ -6,9 +6,24 @@
              xmlns:local="clr-namespace:NameConvention"
              mc:Ignorable="d" 
              d:DesignHeight="Auto" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="ListBox">
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <ListBox x:Name="ListTables">
-            
-        </ListBox>
+        <Label FontSize="20" x:Name="labelName">База даних:</Label>
+        <Grid MinHeight="200" HorizontalAlignment="Center" Margin="0,40,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="380"></ColumnDefinition>
+                <ColumnDefinition Width="380"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="ListTables" Grid.Column="0">
+
+            </ListBox>
+            <ListBox x:Name="ListRows" Grid.Column="1">
+
+            </ListBox>
+        </Grid>
     </Grid>
 </UserControl>
