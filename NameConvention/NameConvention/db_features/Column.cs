@@ -17,6 +17,11 @@ namespace NameConvention.db_features
             set { _name = value; }
         }
 
+        public Column(string name)
+        {
+            _name = name;
+        }
+
         public void Rename(string newName, SqlConnection conn)
         {
             string QueryString = "";

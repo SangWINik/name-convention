@@ -11,7 +11,7 @@ namespace NameConvention.db_features
     public class Table
     {
         private string _name;
-        private List<Column> _columns; 
+        private List<Column> _columns = new List<Column>(); 
 
         public string Name
         {
