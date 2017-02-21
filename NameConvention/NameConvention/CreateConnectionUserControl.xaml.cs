@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NameConvention.db_features;
 
 namespace NameConvention
 {
@@ -30,7 +32,7 @@ namespace NameConvention
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             _mainWindow = (MainWindow)Window.GetWindow(this);
-            this._mainWindow.generalFrame.Navigate(new TableUserControl());
+            _mainWindow.generalFrame.Navigate(new TableUserControl());
         }
     }
 }

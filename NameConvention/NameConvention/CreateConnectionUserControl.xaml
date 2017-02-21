@@ -29,17 +29,17 @@
                 <StackPanel Margin="0, 30" HorizontalAlignment="Center">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
                         <Label>Ім'я</Label>
-                        <TextBox Width="300"></TextBox>
+                        <TextBox x:Name="NameTextBox" Width="300"></TextBox>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
                         <Label>Пароль</Label>
-                        <TextBox Width="300"></TextBox>
+                        <TextBox x:Name="PasswordTextBox" Width="300"></TextBox>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
                         <Label>Ім'я БД</Label>
-                        <TextBox Width="300"></TextBox>
+                        <TextBox x:Name="DBTextBox" Width="300"></TextBox>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
