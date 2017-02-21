@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="NameConvention.CreateConnectionUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NameConvention"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="600">
+    <UserControl.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <DockPanel Margin="8">
+            <Border
+                BorderBrush="Gray"
+                Background="White"
+                BorderThickness="1"
+                Padding="8">
+                <StackPanel Margin="0, 30" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+                        <Label>Ім'я</Label>
+                        <TextBox Width="300"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+                        <Label>Пароль</Label>
+                        <TextBox Width="300"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+                        <Label>Ім'я БД</Label>
+                        <TextBox Width="300"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                        <Button Click="Button_Click">Підключитися</Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+    </Grid>
+</UserControl>
