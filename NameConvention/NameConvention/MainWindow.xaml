@@ -5,9 +5,14 @@
         Title="NameConvention" Height="550" Width="800"
         Icon="../Images/icon.ico">
     <Grid Background="WhiteSmoke">
-        <local:MenuUserControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="800"/>
-        <StackPanel Margin="0,24,0,0">
-            <local:CreateConnectionUserControl HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto" Height="Auto"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="508*"/>
+            <ColumnDefinition Width="285*"/>
+        </Grid.ColumnDefinitions>
+        <local:MenuUserControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Grid.ColumnSpan="2" Margin="0,0,-8,0"/>
+        <StackPanel Margin="0,24,0,0" Grid.ColumnSpan="2">
+            <Frame Margin="0,8,0,0" Name="generalFrame" HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto" Height="Auto"
+                   Source="CreateConnectionUserControl.xaml" NavigationUIVisibility="Hidden"/>
         </StackPanel>
     </Grid>
 </Window>

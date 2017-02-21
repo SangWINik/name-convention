@@ -16,21 +16,13 @@ using System.Windows.Shapes;
 namespace NameConvention
 {
     /// <summary>
-    /// Interaction logic for CreateConnectionUserControl.xaml
+    /// Interaction logic for TableUserControl.xaml
     /// </summary>
-    public partial class CreateConnectionUserControl : UserControl
+    public partial class TableUserControl : UserControl
     {
-        public CreateConnectionUserControl()
+        public TableUserControl()
         {
             InitializeComponent();
-        }
-
-        private MainWindow _mainWindow;
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            _mainWindow = (MainWindow)Window.GetWindow(this);
-            this._mainWindow.generalFrame.Navigate(new TableUserControl());
         }
     }
 }
