@@ -18,10 +18,10 @@
                 <ColumnDefinition Width="380"></ColumnDefinition>
                 <ColumnDefinition Width="380"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="ListTables" Grid.Column="0">
+            <ListBox x:Name="ListTables" Grid.Column="0" SelectionChanged="ListTables_SelectionChanged">
 
             </ListBox>
-            <ListBox x:Name="ListRows" Grid.Column="1">
+            <ListBox x:Name="ListColums" Grid.Column="1">
 
             </ListBox>
         </Grid>

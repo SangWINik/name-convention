@@ -31,5 +31,13 @@ namespace NameConvention
             for (int i = 0; i < structure.Tables.Count; i++)
                 ListTables.Items.Add(structure.Tables[i].Name);
         }
+
+        private void ListTables_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!ListColums.Items.IsEmpty) ListColums.Items.Clear();
+            int index = ListTables.SelectedIndex;
+            for (int i = 0; i < structure.Tables[index].Columns.Count; i++)
+                ListColums.Items.Add(structure.Tables[index].Columns[i].Name);
+        }
     }
 }
