@@ -61,5 +61,18 @@ namespace NameConvention.db_features
                 r.Close();
             }
         }
+
+        public void RenameDataBase(string new_name)
+        {
+            string QueryString = "ALTER DATABASE " + _dataBaseName + " MODIFY NAME = " + new_name;
+            SqlCommand command = new SqlCommand(QueryString, connection);
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex) { }
+        }
     }
 }
