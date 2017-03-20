@@ -75,9 +75,9 @@ namespace NameConvention.db_features
             SqlCommand command = new SqlCommand(QueryString, connection);
             try
             {
-                connection.Open();
+                //connection.Open();
                 command.ExecuteNonQuery();
-                connection.Close();
+                //connection.Close();
             }
             catch (Exception ex) { }
         }

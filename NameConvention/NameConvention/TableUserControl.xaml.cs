@@ -30,7 +30,7 @@ namespace NameConvention
 
             for (int i = 0; i < structure.Tables.Count; i++)
                 ListTables.Items.Add(structure.Tables[i].Name);
-            labelName.Content = "База даних: " + structure.DataBaseName;
+            textBoxChangedDB.Text = structure.DataBaseName;
         }
 
         private void ListTables_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -63,7 +63,7 @@ namespace NameConvention
             int index_column = ListColums.SelectedIndex;
             structure.Tables[index_table].RenameColumn(structure.Tables[index_table].Columns[index_column],
                 textBoxChangedColumn.Text, structure.Connection);
-            //ListColums.Items[index_column] = textBoxChanged.Text;
+
             ListTables.UnselectAll();
             ListColums.UnselectAll();
             ListTables.Items.Clear();
@@ -71,7 +71,6 @@ namespace NameConvention
             structure.FillStructure(structure.Connection);
             for (int i = 0; i < structure.Tables.Count; i++)
                 ListTables.Items.Add(structure.Tables[i].Name);
-            labelName.Content = "База даних: " + structure.DataBaseName;
             ListTables.SelectedIndex = index_table;
             ListColums.SelectedIndex = index_column;
         }
@@ -88,8 +87,14 @@ namespace NameConvention
             structure.FillStructure(structure.Connection);
             for (int i = 0; i < structure.Tables.Count; i++)
                 ListTables.Items.Add(structure.Tables[i].Name);
-            labelName.Content = "База даних: " + structure.DataBaseName;
             ListTables.SelectedIndex = index_table;
+        }
+
+        private void buttonChangedDB_Click(object sender, RoutedEventArgs e)
+        {
+            structure.RenameDataBase(textBoxChangedDB.Text);
+            structure.FillStructure(structure.Connection);
+            textBoxChangedDB.Text = structure.DataBaseName;
         }
     }
 }
