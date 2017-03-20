@@ -29,33 +29,5 @@ namespace NameConvention.db_features
         {
             _name = name;
         }
-
-        public void Rename(string newName, SqlConnection conn)
-        {
-            //string QueryString = "ALTER TABLE " + _name + " RENAME TO " + newName + ";";
-            string QueryString = "sp_rename '" + _name + "', '" + newName + "';";
-            SqlCommand command = new SqlCommand(QueryString, conn);
-            try
-            {
-                conn.Open();
-                command.ExecuteNonQuery();
-                conn.Close();
-            }
-            catch (Exception ex) { }
-        }
-
-        public void RenameColumn(Column col, string newName, SqlConnection conn)
-        {
-            //string QueryString = "ALTER TABLE " + _name + " RENAME COLUMN " + col.Name + " TO " + newName + ";";
-            string QueryString = "sp_rename '" + _name + "." + col.Name + "', '" + newName + "', '" + "'COLUMN';";
-            SqlCommand command = new SqlCommand(QueryString, conn);
-            try
-            {
-                conn.Open();
-                command.ExecuteNonQuery();
-                conn.Close();
-            }
-            catch (Exception ex) { }
-        }
     }
 }
