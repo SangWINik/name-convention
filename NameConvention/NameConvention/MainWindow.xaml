@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:NameConvention" x:Class="NameConvention.MainWindow"
         Title="NameConvention" Height="550" Width="820"
-        Icon="../Images/icon.ico">
+        Icon="../Images/icon.ico" Loaded="Window_Loaded">
     <Grid Background="WhiteSmoke">
         <Grid Height="26" VerticalAlignment="Top">
             <DockPanel>

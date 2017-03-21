@@ -21,6 +21,7 @@ namespace NameConvention
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Convention CurrentConvention;
         public DbStructure Structure;
         public TableUserControl tableUserControl;
 
@@ -56,7 +57,12 @@ namespace NameConvention
 
         private void MenuItem_Click_7(object sender, RoutedEventArgs e)
         {
-            generalFrame.Navigate(new PatternsUserControl());
+            generalFrame.Navigate(new PatternsUserControl(this));
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
