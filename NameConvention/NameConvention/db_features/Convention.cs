@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.XPath;
 
 namespace NameConvention.db_features
 {
     public class Convention
     {
-        public static string[] ColumnTemplates = {":tName:", ":TName:", ":mainPart:", ":MainPart:"};
-
         private string Name;
         private string TableTemplate;
         private string ColumnTemplate;
@@ -45,47 +44,47 @@ namespace NameConvention.db_features
             }
             if (result.IndexOf(":mainPart:") != -1)
             {
-                if (tName.Length > 0)
+                if (mainPart.Length > 0)
                     mainPart = mainPart.First().ToString().ToLower() + mainPart.Substring(1);
                 result = result.Replace(":mainPart:", mainPart);
             }
             if (result.IndexOf(":MainPart:") != -1)
             {
-                if (tName.Length > 0)
+                if (mainPart.Length > 0)
                     mainPart = mainPart.First().ToString().ToUpper() + mainPart.Substring(1);
                 result = result.Replace(":MainPart:", mainPart);
             }
             return result;
         }
-    }
 
-    public class TableConvention
-    {
-        private string TemplateString;
-
-        public TableConvention(string template)
+        public string GetTableName(string oldName)
         {
-            TemplateString = template;
+            string mainPart = oldName;
+            string result = TableTemplate;
+            if (result.IndexOf(":mainPart:") != -1)
+            {
+                if (mainPart.Length > 0)
+                    mainPart = mainPart.First().ToString().ToLower() + mainPart.Substring(1);
+                result = result.Replace(":mainPart:", mainPart);
+            }
+            if (result.IndexOf(":MainPart:") != -1)
+            {
+                if (mainPart.Length > 0)
+                    mainPart = mainPart.First().ToString().ToUpper() + mainPart.Substring(1);
+                result = result.Replace(":MainPart:", mainPart);
+            }
+            if (PluralTableNames)
+            {
+                if (result[result.Length - 1] != 's')
+                    result += "s";
+            }
+            else
+            {
+                if (result[result.Length - 1] == 's')
+                    result = result.Remove(result.Length - 1, 1);
+            }
+            return result;
         }
-    }
-
-    public class ColumnConvention
-    {
-        private string TemplateString;
-
-        public ColumnConvention(string template)
-        {
-            TemplateString = template;
-        }
-    }
-
-    public class PrimaryKeyConvention
-    {
-        private string TemplateString;
-
-        public PrimaryKeyConvention(string template)
-        {
-            TemplateString = template;
-        }
+        
     }
 }

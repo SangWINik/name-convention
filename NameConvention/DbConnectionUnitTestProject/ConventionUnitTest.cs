@@ -13,5 +13,12 @@ namespace DbConnectionUnitTestProject
             Convention con = new Convention("conv", "", ":tName:_:MainPart:Column", "", false);
             Console.WriteLine(con.GetColumnName("Color", "Door"));
         }
+
+        [TestMethod]
+        public void TableTestMethod()
+        {
+            Convention con = new Convention("conv", ":MainPart:__++__:mainPart:", ":tName:_:MainPart:Column", "", true);
+            Console.WriteLine(con.GetTableName("Doors"));
+        }
     }
 }
