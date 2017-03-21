@@ -53,10 +53,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AboutProgramUserControl.xaml.cs">
+      <DependentUpon>AboutProgramUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="db_features\Connection.cs" />
+    <Compile Include="ReferenceUserControl.xaml.cs">
+      <DependentUpon>ReferenceUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StandardPatternsUserControl.xaml.cs">
+      <DependentUpon>StandardPatternsUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TableUserControl.xaml.cs">
       <DependentUpon>TableUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserPatternsUserControl.xaml.cs">
+      <DependentUpon>UserPatternsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AboutProgramUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CreateConnectionUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -83,7 +99,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ReferenceUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StandardPatternsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TableUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserPatternsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
