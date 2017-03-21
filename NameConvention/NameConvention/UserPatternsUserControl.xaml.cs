@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace NameConvention
 {
     /// <summary>
-    /// Interaction logic for MenuUserControl.xaml
+    /// Interaction logic for UserPatternsUserControl.xaml
     /// </summary>
-    public partial class MenuUserControl : UserControl
+    public partial class UserPatternsUserControl : UserControl
     {
-        public MenuUserControl()
+        public UserPatternsUserControl()
         {
             InitializeComponent();
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

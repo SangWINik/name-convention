@@ -22,10 +22,46 @@ namespace NameConvention
     public partial class MainWindow : Window
     {
         public DbStructure Structure;
+        public TableUserControl tableUserControl;
 
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            generalFrame.Navigate(new CreateConnectionUserControl());
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            generalFrame.Navigate(new StandardPatternsUserControl());
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            generalFrame.Navigate(new UserPatternsUserControl());
+        }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            generalFrame.Navigate(new ReferenceUserControl());
+        }
+
+        private void MenuItem_Click_5(object sender, RoutedEventArgs e)
+        {
+            generalFrame.Navigate(new AboutCreatorsUserControl());
+        }
+
+        private void MenuItem_Click_6(object sender, RoutedEventArgs e)
+        {
+            generalFrame.Navigate(tableUserControl);
         }
     }
 }
