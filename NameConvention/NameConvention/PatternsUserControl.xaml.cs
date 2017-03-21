@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +23,21 @@ namespace NameConvention
     /// </summary>
     public partial class PatternsUserControl : UserControl
     {
+        public ConventionSet Conventions;
         public MainWindow mWindow;
 
         public PatternsUserControl(MainWindow window)
         {
             InitializeComponent();
             mWindow = window;
+            if (!File.Exists("conventions.dat"))
+            {
+                Conventions = new ConventionSet();
+                DataSerializer.SerializeData("conventions.dat", Conventions);
+            }
+            else
+                Conventions = DataSerializer.DeserializeItem("conventions.dat");
+            ReloadConventions();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,6 +52,9 @@ namespace NameConvention
                 Convention conv = new Convention(patternName.Text, patternTable.Text, patternColumn.Text,
                     patternPrimaryKey.Text, ch);
                 mWindow.CurrentConvention = conv;
+                Conventions.Conventions.Add(conv);
+                DataSerializer.SerializeData("conventions.dat", Conventions);
+                ReloadConventions();
             }
             catch (Exception ex)
             {
@@ -50,7 +64,11 @@ namespace NameConvention
 
         private void ReloadConventions()
         {
-            
+            dataGridPatterns.Items.Clear();
+            foreach (var cv in Conventions.Conventions)
+            {
+                dataGridPatterns.Items.Add(cv);
+            }
         }
     }
 }

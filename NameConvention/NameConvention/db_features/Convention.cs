@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -8,13 +9,19 @@ using System.Xml.XPath;
 
 namespace NameConvention.db_features
 {
+    [DataContract]
     public class Convention
     {
-        private string Name;
-        private string TableTemplate;
-        private string ColumnTemplate;
-        private string PrimaryKeyTemplate;
-        private bool PluralTableNames;
+        [DataMember]
+        public string Name { get; set; }
+        [DataMember]
+        public string TableTemplate { get; set; }
+        [DataMember]
+        public string ColumnTemplate { get; set; }
+        [DataMember]
+        public string PrimaryKeyTemplate { get; set; }
+        [DataMember]
+        public bool PluralTableNames { get; set; }
 
         public Convention(string name, string tableTemplate, string columnTemplate, string pkTemplate, bool pluralTableNames)
         {
