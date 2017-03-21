@@ -7,6 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="Auto" d:DesignWidth="800">
     <Grid>
-        <Label FontSize="20" x:Name="labelName">Довідка</Label>
+        <Label FontSize="20" x:Name="labelName" Margin="0,0,0,-310">Довідка</Label>
+        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="Auto" Margin="0,40,0,-157" VerticalAlignment="Top" 
+                     Width="800" IsReadOnly="True">
+            <FlowDocument>
+                <Paragraph FontSize="16">NameConvention - програма для опису конвеншинів іменування об'єктів у базі даних, аналізу імен існуючих об'єктів та перейменування існуюючих об'єктів згідно з конвеншинами.</Paragraph>
+            </FlowDocument>
+        </RichTextBox>
     </Grid>
 </UserControl>

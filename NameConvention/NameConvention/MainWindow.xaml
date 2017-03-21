@@ -13,7 +13,7 @@
                         <Separator />
                         <MenuItem Header="_Закрити" Click="MenuItem_Click"/>
                     </MenuItem>
-                    <MenuItem Header="Конвеншини" Click="MenuItem_Click_6"/>
+                    <MenuItem Header="Дані" Click="MenuItem_Click_6"/>
                     <MenuItem Header="_Шаблони">
                         <MenuItem Header="_Стандартні шаблони" Click="MenuItem_Click_2"/>
                         <MenuItem Header="_Користувацькі шаблони" Click="MenuItem_Click_3"/>
