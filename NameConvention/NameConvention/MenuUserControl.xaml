@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NameConvention"
              mc:Ignorable="d" 
-             d:DesignHeight="Auto" d:DesignWidth="800">
+             d:DesignHeight="26" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="MenuItem">
             <Setter Property="FontSize" Value="16"/>
@@ -17,7 +17,7 @@
                 <MenuItem Header="Файл">
                     <MenuItem Header="_Підключитися до бази даних"/>
                     <Separator />
-                    <MenuItem Header="_Закрити"/>
+                    <MenuItem Header="_Закрити" Click="MenuItem_Click"/>
                 </MenuItem>
                 <MenuItem Header="_Шаблони">
                     <MenuItem Header="_Додати новий шаблон"/>

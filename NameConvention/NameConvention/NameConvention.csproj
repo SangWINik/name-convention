@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -44,6 +46,7 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Xml.Serialization" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -53,10 +56,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AboutProgramUserControl.xaml.cs">
+      <DependentUpon>AboutProgramUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="db_features\Connection.cs" />
+    <Compile Include="db_features\Convention.cs" />
+    <Compile Include="db_features\DataSerializer.cs" />
+    <Compile Include="ReferenceUserControl.xaml.cs">
+      <DependentUpon>ReferenceUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PatternsUserControl.xaml.cs">
+      <DependentUpon>PatternsUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TableUserControl.xaml.cs">
       <DependentUpon>TableUserControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="AboutProgramUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CreateConnectionUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,6 +98,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MenuUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReferenceUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PatternsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

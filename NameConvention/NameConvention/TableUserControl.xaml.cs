@@ -30,14 +30,71 @@ namespace NameConvention
 
             for (int i = 0; i < structure.Tables.Count; i++)
                 ListTables.Items.Add(structure.Tables[i].Name);
+            textBoxChangedDB.Text = structure.DataBaseName;
         }
 
         private void ListTables_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ListColums.UnselectAll();
+            textBoxChangedColumn.Text = "";
+            gridChangedColumn.Visibility = Visibility.Hidden;
+
             if (!ListColums.Items.IsEmpty) ListColums.Items.Clear();
             int index = ListTables.SelectedIndex;
-            for (int i = 0; i < structure.Tables[index].Columns.Count; i++)
-                ListColums.Items.Add(structure.Tables[index].Columns[i].Name);
+            if(index != -1)
+                for (int i = 0; i < structure.Tables[index].Columns.Count; i++)
+                    ListColums.Items.Add(structure.Tables[index].Columns[i].Name);
+
+            gridChangedTable.Visibility = Visibility.Visible;
+            if (ListTables.SelectedIndex != -1)
+                textBoxChangedTable.Text = structure.Tables[ListTables.SelectedIndex].Name;
+        }
+
+        private void ListColums_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            gridChangedColumn.Visibility = Visibility.Visible;
+            if(ListColums.SelectedIndex != -1)
+                textBoxChangedColumn.Text = structure.Tables[ListTables.SelectedIndex].Columns[ListColums.SelectedIndex].Name;
+        }
+        
+        private void buttonChangedColumn_Click(object sender, RoutedEventArgs e)
+        {
+            int index_table = ListTables.SelectedIndex;
+            int index_column = ListColums.SelectedIndex;
+            structure.Tables[index_table].RenameColumn(structure.Tables[index_table].Columns[index_column],
+                textBoxChangedColumn.Text, structure.Connection);
+
+            ListTables.UnselectAll();
+            ListColums.UnselectAll();
+            ListTables.Items.Clear();
+            ListColums.Items.Clear();
+            structure.FillStructure(structure.Connection);
+            for (int i = 0; i < structure.Tables.Count; i++)
+                ListTables.Items.Add(structure.Tables[i].Name);
+            ListTables.SelectedIndex = index_table;
+            ListColums.SelectedIndex = index_column;
+        }
+
+        private void buttonChangedTable_Click(object sender, RoutedEventArgs e)
+        {
+            int index_table = ListTables.SelectedIndex;
+            structure.Tables[index_table].Rename(textBoxChangedTable.Text, structure.Connection);
+            
+            ListTables.UnselectAll();
+            ListColums.UnselectAll();
+            ListTables.Items.Clear();
+            ListColums.Items.Clear();
+            structure.FillStructure(structure.Connection);
+            for (int i = 0; i < structure.Tables.Count; i++)
+                ListTables.Items.Add(structure.Tables[i].Name);
+            ListTables.SelectedIndex = index_table;
+        }
+
+        private void buttonChangedDB_Click(object sender, RoutedEventArgs e)
+        {
+            structure.RenameDataBase(textBoxChangedDB.Text);
+            structure.FillStructure(structure.Connection);
+            textBoxChangedDB.Text = structure.DataBaseName;
         }
     }
 }

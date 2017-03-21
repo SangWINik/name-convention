@@ -12,18 +12,51 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Label FontSize="20" x:Name="labelName">База даних:</Label>
-        <Grid MinHeight="200" HorizontalAlignment="Center" Margin="0,40,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="380"></ColumnDefinition>
-                <ColumnDefinition Width="380"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <ListBox x:Name="ListTables" Grid.Column="0" SelectionChanged="ListTables_SelectionChanged">
-
-            </ListBox>
-            <ListBox x:Name="ListColums" Grid.Column="1">
-
-            </ListBox>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="251*"/>
+            <RowDefinition Height="27*"/>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Center" Margin="20,0" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label FontSize="20" x:Name="labelName" Grid.Row="0">База даних:</Label>
+            <TextBox Grid.Row="0" Margin="115, 0, 0, 0" Width="200" HorizontalAlignment="Left" x:Name="textBoxChangedDB"
+                         FontSize="16" Height="24" VerticalAlignment="Center"></TextBox>
+            <Button Grid.Row="0" FontSize="16" Margin="320,0,0,0" Width="80" Height="24" HorizontalAlignment="Left" 
+                    x:Name="buttonChangedDB" VerticalAlignment="Center" Click="buttonChangedDB_Click">Поміняти</Button>
+            <Grid MinHeight="200" MaxHeight="400" HorizontalAlignment="Center" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="380"></ColumnDefinition>
+                    <ColumnDefinition Width="380"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ListBox x:Name="ListTables" Grid.Column="0" SelectionChanged="ListTables_SelectionChanged">
+                </ListBox>
+                <ListBox x:Name="ListColums" Grid.Column="1" SelectionChanged="ListColums_SelectionChanged">
+                </ListBox>
+            </Grid>
+            <Grid Grid.Row="2" Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" HorizontalAlignment="Left" x:Name="gridChangedTable" Visibility="Hidden">
+                    <Label FontSize="16" x:Name="labelChangeTable">Таблиця:</Label>
+                    <TextBox Margin="75,0,0,0" Width="200" HorizontalAlignment="Left" x:Name="textBoxChangedTable"
+                         FontSize="16" VerticalAlignment="Center"></TextBox>
+                    <Button FontSize="16" Margin="280,0,0,0" Width="80" Height="24" HorizontalAlignment="Left" x:Name="buttonChangedTable"
+                        VerticalAlignment="Center" Click="buttonChangedTable_Click">Поміняти</Button>
+                </Grid>
+                <Grid Grid.Column="1" HorizontalAlignment="Center" x:Name="gridChangedColumn" Visibility="Hidden">
+                    <Label FontSize="16" x:Name="labelChangeColumn">Колонка:</Label>
+                    <TextBox Margin="75,0,0,0" Width="200" HorizontalAlignment="Left" x:Name="textBoxChangedColumn"
+                         FontSize="16" VerticalAlignment="Center"></TextBox>
+                    <Button FontSize="16" Margin="280,0,0,0" Width="80" Height="24" HorizontalAlignment="Left" x:Name="buttonChangedColumn"
+                        VerticalAlignment="Center" Click="buttonChangedColumn_Click">Поміняти</Button>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

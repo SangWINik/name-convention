@@ -25,10 +25,17 @@ namespace NameConvention.db_features
             set { _dataBaseName = value; }
         }
 
+        public SqlConnection Connection
+        {
+            get { return connection; }
+        }
+
+
         public void FillStructure(SqlConnection conn)
         {
             connection = conn;
-            connection.Open();
+            if (connection.State != System.Data.ConnectionState.Open) connection.Open();
+            if (_tables.Count != 0) _tables.Clear();
 
             //Визначення назви бази даних
             SqlCommand com = new SqlCommand("SELECT db_name()", conn);
@@ -68,9 +75,9 @@ namespace NameConvention.db_features
             SqlCommand command = new SqlCommand(QueryString, connection);
             try
             {
-                connection.Open();
+                //connection.Open();
                 command.ExecuteNonQuery();
-                connection.Close();
+                //connection.Close();
             }
             catch (Exception ex) { }
         }
