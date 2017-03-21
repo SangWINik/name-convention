@@ -10,7 +10,7 @@ namespace DbConnectionUnitTestProject
         [TestMethod]
         public void ColumnTestMethod()
         {
-            Convention con = new Convention("conv", "", ":tName:_:MainPart:Column", "", false);
+            Convention con = new Convention("conv", "", ":TName:_:MainPart:_Column", "", false);
             Console.WriteLine(con.GetColumnName("Color", "Door"));
         }
 
@@ -19,6 +19,13 @@ namespace DbConnectionUnitTestProject
         {
             Convention con = new Convention("conv", ":MainPart:__++__:mainPart:", ":tName:_:MainPart:Column", "", true);
             Console.WriteLine(con.GetTableName("Doors"));
+        }
+
+        [TestMethod]
+        public void PrimaryKeyTestMethod()
+        {
+            Convention con = new Convention("conv", ":MainPart:__++__:mainPart:", ":tName:_:MainPart:Column", ":TName:_ID", true);
+            Console.WriteLine(con.GetPrimaryKeyName("ID", "Door"));
         }
     }
 }
