@@ -61,7 +61,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                 </StackPanel>
-                <Button FontSize="14" Width="200" Margin="0,5,0,0">Додати шаблон</Button>
+                <Button FontSize="14" Width="200" Margin="0,5,0,0" Click="Button_Click">Додати шаблон</Button>
             </StackPanel>
         </StackPanel>
     </Grid>

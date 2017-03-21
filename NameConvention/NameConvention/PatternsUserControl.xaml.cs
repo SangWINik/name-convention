@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NameConvention.db_features;
 
 namespace NameConvention
 {
@@ -20,9 +21,36 @@ namespace NameConvention
     /// </summary>
     public partial class PatternsUserControl : UserControl
     {
-        public PatternsUserControl()
+        public MainWindow mWindow;
+
+        public PatternsUserControl(MainWindow window)
         {
             InitializeComponent();
+            mWindow = window;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                bool ch;
+                if (patternTablePuraly.IsChecked == true)
+                    ch = true;
+                else
+                    ch = false;
+                Convention conv = new Convention(patternName.Text, patternTable.Text, patternColumn.Text,
+                    patternPrimaryKey.Text, ch);
+                mWindow.CurrentConvention = conv;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ReloadConventions()
+        {
+            
         }
     }
 }
