@@ -18,9 +18,9 @@ namespace NameConvention
     /// <summary>
     /// Interaction logic for StandardPatternsUserControl.xaml
     /// </summary>
-    public partial class StandardPatternsUserControl : UserControl
+    public partial class PatternsUserControl : UserControl
     {
-        public StandardPatternsUserControl()
+        public PatternsUserControl()
         {
             InitializeComponent();
         }

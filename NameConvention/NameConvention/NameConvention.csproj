@@ -61,14 +61,11 @@
     <Compile Include="ReferenceUserControl.xaml.cs">
       <DependentUpon>ReferenceUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StandardPatternsUserControl.xaml.cs">
-      <DependentUpon>StandardPatternsUserControl.xaml</DependentUpon>
+    <Compile Include="PatternsUserControl.xaml.cs">
+      <DependentUpon>PatternsUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="TableUserControl.xaml.cs">
       <DependentUpon>TableUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserPatternsUserControl.xaml.cs">
-      <DependentUpon>UserPatternsUserControl.xaml</DependentUpon>
     </Compile>
     <Page Include="AboutProgramUserControl.xaml">
       <SubType>Designer</SubType>
@@ -104,15 +101,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StandardPatternsUserControl.xaml">
+    <Page Include="PatternsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TableUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserPatternsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

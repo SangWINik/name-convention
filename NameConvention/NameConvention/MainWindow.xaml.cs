@@ -38,17 +38,7 @@ namespace NameConvention
         {
             generalFrame.Navigate(new CreateConnectionUserControl());
         }
-
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
-        {
-            generalFrame.Navigate(new StandardPatternsUserControl());
-        }
-
-        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
-        {
-            generalFrame.Navigate(new UserPatternsUserControl());
-        }
-
+        
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
             generalFrame.Navigate(new ReferenceUserControl());
@@ -62,6 +52,11 @@ namespace NameConvention
         private void MenuItem_Click_6(object sender, RoutedEventArgs e)
         {
             generalFrame.Navigate(tableUserControl);
+        }
+
+        private void MenuItem_Click_7(object sender, RoutedEventArgs e)
+        {
+            generalFrame.Navigate(new PatternsUserControl());
         }
     }
 }
