@@ -50,14 +50,14 @@
                     <DataGridTemplateColumn x:Name="columnPatternApply" Width="80">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button>Застосувати</Button>
+                                <Button Click="Button_Click_2">Застосувати</Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn x:Name="columnPatternDelete" Width="80">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button>Видалити</Button>
+                                <Button Click="Button_Click_1">Видалити</Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

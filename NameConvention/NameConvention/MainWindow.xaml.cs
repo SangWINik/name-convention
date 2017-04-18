@@ -52,7 +52,9 @@ namespace NameConvention
 
         private void MenuItem_Click_6(object sender, RoutedEventArgs e)
         {
+            Structure.FillStructure(Connector.GetConnection(Connector.Name, Connector.Password, Connector.Db_name));
             generalFrame.Navigate(tableUserControl);
+            tableUserControl.Update(Structure);
         }
 
         private void MenuItem_Click_7(object sender, RoutedEventArgs e)

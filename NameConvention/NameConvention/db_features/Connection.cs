@@ -9,8 +9,15 @@ namespace NameConvention.db_features
 {
     public static class Connector
     {
+        public static string Name;
+        public static string Password;
+        public static string Db_name;
+
         public static SqlConnection GetConnection(string name, string password, string db_name)
         {
+            Name = name;
+            Password = password;
+            Db_name = db_name;
             SqlConnection conn;
             try
             {
