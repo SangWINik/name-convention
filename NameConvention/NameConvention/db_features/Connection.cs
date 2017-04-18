@@ -15,6 +15,8 @@ namespace NameConvention.db_features
 
         public static SqlConnection GetConnection(string name, string password, string db_name)
         {
+            if (db_name == "")
+                throw new Exception("Заповніть необхідні поля");
             Name = name;
             Password = password;
             Db_name = db_name;

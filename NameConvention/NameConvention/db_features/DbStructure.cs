@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace NameConvention.db_features
 {
@@ -33,39 +34,47 @@ namespace NameConvention.db_features
 
         public void FillStructure(SqlConnection conn)
         {
-            connection = conn;
-            if (connection.State != System.Data.ConnectionState.Open) connection.Open();
-            if (_tables.Count != 0) _tables.Clear();
-
-            //Визначення назви бази даних
-            SqlCommand com = new SqlCommand("SELECT db_name()", conn);
-            _dataBaseName = com.ExecuteScalar().ToString();
-
-            //Визначення назв таблиць
-            string Query = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'";
-            SqlCommand command = new SqlCommand(Query, connection);
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                if (reader[0].ToString() != "sysdiagrams") //Пропускаєм системну таблицю
+                connection = conn;
+                if (connection.State != System.Data.ConnectionState.Open) connection.Open();
+                if (_tables.Count != 0) _tables.Clear();
+
+                //Визначення назви бази даних
+                SqlCommand com = new SqlCommand("SELECT db_name()", conn);
+                _dataBaseName = com.ExecuteScalar().ToString();
+
+                //Визначення назв таблиць
+                string Query = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'";
+                SqlCommand command = new SqlCommand(Query, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    Table tmp = new Table(reader[0].ToString());
-                    _tables.Add(tmp);
+                    if (reader[0].ToString() != "sysdiagrams") //Пропускаєм системну таблицю
+                    {
+                        Table tmp = new Table(reader[0].ToString());
+                        _tables.Add(tmp);
+                    }
+                }
+                reader.Close();
+
+                //Визначення назв колонок в таблицях
+                foreach (var tab in _tables)
+                {
+                    string q = "select COLUMN_NAME from information_schema.columns where table_name = '" + tab.Name +
+                               "';";
+                    SqlCommand comm = new SqlCommand(q, conn);
+                    SqlDataReader r = comm.ExecuteReader();
+                    while (r.Read())
+                    {
+                        tab.Columns.Add(new Column(r[0].ToString()));
+                    }
+                    r.Close();
                 }
             }
-            reader.Close();
-
-            //Визначення назв колонок в таблицях
-            foreach (var tab in _tables)
+            catch (Exception ex)
             {
-                string q = "select COLUMN_NAME from information_schema.columns where table_name = '" + tab.Name + "';";
-                SqlCommand comm = new SqlCommand(q, conn);
-                SqlDataReader r = comm.ExecuteReader();
-                while (r.Read())
-                {
-                    tab.Columns.Add(new Column(r[0].ToString()));
-                }
-                r.Close();
+                MessageBox.Show(ex.Message);
             }
         }
 
