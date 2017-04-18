@@ -70,5 +70,12 @@ namespace NameConvention
                 dataGridPatterns.Items.Add(cv);
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Conventions.Conventions.RemoveAt(dataGridPatterns.SelectedIndex);
+            ReloadConventions();
+            DataSerializer.SerializeData("conventions.dat", Conventions);
+        }
     }
 }
