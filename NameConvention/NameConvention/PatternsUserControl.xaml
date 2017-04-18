@@ -43,8 +43,8 @@
             <DataGrid x:Name="dataGridPatterns" AutoGenerateColumns="False" FontSize="14" Margin="20">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="columnPatternName" Binding="{Binding Name}" Header="Назва" Width="80"></DataGridTextColumn>
-                    <DataGridTextColumn x:Name="columnPatternColumn" Binding="{Binding TableTemplate}" Header="Шаблон для колонки" Width="150"></DataGridTextColumn>
-                    <DataGridTextColumn x:Name="columnPatternTable" Binding="{Binding ColumnTemplate}" Header="Шаблон для таблиці" Width="150"></DataGridTextColumn>
+                    <DataGridTextColumn x:Name="columnPatternColumn" Binding="{Binding ColumnTemplate}" Header="Шаблон для колонки" Width="150"></DataGridTextColumn>
+                    <DataGridTextColumn x:Name="columnPatternTable" Binding="{Binding TableTemplate}" Header="Шаблон для таблиці" Width="150"></DataGridTextColumn>
                     <DataGridCheckBoxColumn x:Name="columnPatternTablePlural" Binding="{Binding PluralTableNames}" Header="Назви таблиць в множині" Width="50"></DataGridCheckBoxColumn>
                     <DataGridTextColumn x:Name="columnPatternPrimaryKey" Binding="{Binding PrimaryKeyTemplate}" Header="Шаблон для ПК" Width="150"></DataGridTextColumn>
                     <DataGridTemplateColumn x:Name="columnPatternApply" Width="80">
