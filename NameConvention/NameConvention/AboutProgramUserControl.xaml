@@ -8,5 +8,13 @@
              d:DesignHeight="Auto" d:DesignWidth="800">
     <Grid>
         <Label FontSize="20" x:Name="labelName">Про NameConvention</Label>
+        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="Auto" Margin="0,49,0,0" VerticalAlignment="Top" 
+                     IsReadOnly="True" Background="White">
+            <FlowDocument>
+                <Paragraph FontSize="16" Padding="20,0,0,0">
+                    <Run Text="Система дозволить логінитись в базу даних, переглядати назви об'єктів, полів, таблиць. Користувач може за допомогою програми корегувати назвати своїх елементів у БД . Також користувач може створити свої шаблонні найменування якими зможе потім скористатися"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
     </Grid>
 </UserControl>

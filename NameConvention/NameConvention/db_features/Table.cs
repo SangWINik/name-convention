@@ -57,5 +57,25 @@ namespace NameConvention.db_features
             }
             catch (Exception ex) { }
         }
+
+        public void RenameColumnPK(string newName, SqlConnection conn)
+        {
+            string qs = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE WHERE OBJECTPROPERTY(OBJECT_ID(CONSTRAINT_SCHEMA + '.' + QUOTENAME(CONSTRAINT_NAME)), 'IsPrimaryKey') = 1 AND TABLE_NAME = '" + _name + "'";
+            SqlCommand comm = new SqlCommand(qs, conn);
+            object res = comm.ExecuteScalar();
+            if (res == null)
+                return;
+            string colName = res.ToString();
+            //string QueryString = "ALTER TABLE " + _name + " RENAME COLUMN " + col.Name + " TO " + newName + ";";
+            string QueryString = "sp_rename '" + _name + "." + colName + "', '" + newName + "', 'COLUMN';";
+            SqlCommand command = new SqlCommand(QueryString, conn);
+            try
+            {
+                //conn.Open();
+                command.ExecuteNonQuery();
+                //conn.Close();
+            }
+            catch (Exception ex) { }
+        }
     }
 }

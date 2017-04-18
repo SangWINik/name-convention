@@ -13,9 +13,9 @@
                         <Separator />
                         <MenuItem Header="_Закрити" Click="MenuItem_Click"/>
                     </MenuItem>
-                    <MenuItem Header="Дані" Click="MenuItem_Click_6"/>
+                    <MenuItem Header="Дані" Click="MenuItem_Click_6" IsEnabled="False" x:Name="DataMenu"/>
                     <MenuItem Header="_Шаблони" Click="MenuItem_Click_7"/>
-                    <MenuItem Header="_?">
+                    <MenuItem Header="_?" Click="MenuItem_Click_2">
                         <MenuItem Header="_Довідка" Click="MenuItem_Click_4"/>
                         <Separator />
                         <MenuItem Header="_Про програму" Click="MenuItem_Click_5"/>

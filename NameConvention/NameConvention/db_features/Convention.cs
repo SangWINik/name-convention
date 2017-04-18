@@ -26,6 +26,10 @@ namespace NameConvention.db_features
         public Convention(string name, string tableTemplate, string columnTemplate, string pkTemplate, bool pluralTableNames)
         {
             Name = name;
+            if (tableTemplate.IndexOf(":mainPart:") == -1 && tableTemplate.IndexOf(":MainPart:") == -1)
+                throw new Exception("У шаблоні імен для таблиці використання старої назви таблиці є обов'язковим");
+            if (columnTemplate.IndexOf(":mainPart:") == -1 && columnTemplate.IndexOf(":MainPart:") == -1)
+                throw new Exception("У шаблоні імен для колонки використання старої назви колонки є обов'язковим");
             TableTemplate = tableTemplate;
             ColumnTemplate = columnTemplate;
             PrimaryKeyTemplate = pkTemplate;

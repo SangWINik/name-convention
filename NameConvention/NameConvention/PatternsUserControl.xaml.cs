@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NameConvention.db_features;
+using System.Data.SqlClient;
 
 namespace NameConvention
 {
@@ -68,6 +69,53 @@ namespace NameConvention
             foreach (var cv in Conventions.Conventions)
             {
                 dataGridPatterns.Items.Add(cv);
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Conventions.Conventions.RemoveAt(dataGridPatterns.SelectedIndex);
+            ReloadConventions();
+            DataSerializer.SerializeData("conventions.dat", Conventions);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Convention currentConvention = Conventions.Conventions[dataGridPatterns.SelectedIndex];
+                for (int i = 0; i < mWindow.Structure.Tables.Count; i++)
+                {
+                    mWindow.Structure.Tables[i].Rename(
+                        currentConvention.GetTableName(mWindow.Structure.Tables[i].Name),
+                        mWindow.Structure.Connection);
+                    mWindow.Structure.Tables[i].Name = currentConvention.GetTableName(mWindow.Structure.Tables[i].Name);
+                    for (int j = 0; j < mWindow.Structure.Tables[i].Columns.Count; j++)
+                    {
+                        mWindow.Structure.Tables[i].RenameColumn(
+                            mWindow.Structure.Tables[i].Columns[j],
+                            currentConvention.GetColumnName(mWindow.Structure.Tables[i].Columns[j].Name,
+                                mWindow.Structure.Tables[i].Name),
+                            mWindow.Structure.Connection);
+                    }
+                    string qs =
+                        "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE WHERE OBJECTPROPERTY(OBJECT_ID(CONSTRAINT_SCHEMA + '.' + QUOTENAME(CONSTRAINT_NAME)), 'IsPrimaryKey') = 1 AND TABLE_NAME = '" +
+                        mWindow.Structure.Tables[i].Name + "'";
+                    SqlCommand comm = new SqlCommand(qs, mWindow.Structure.Connection);
+                    Object r = comm.ExecuteScalar();
+                    if (r != null)
+                    {
+                        string colName = r.ToString();
+                        mWindow.Structure.Tables[i].RenameColumnPK(
+                            currentConvention.GetPrimaryKeyName(colName, mWindow.Structure.Tables[i].Name),
+                            mWindow.Structure.Connection);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
