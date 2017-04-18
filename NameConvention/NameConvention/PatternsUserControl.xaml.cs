@@ -77,5 +77,14 @@ namespace NameConvention
             ReloadConventions();
             DataSerializer.SerializeData("conventions.dat", Conventions);
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Convention currentConvention = Conventions.Conventions[dataGridPatterns.SelectedIndex];
+            for(int i = 0; i<mWindow.Structure.Tables.Count; i++)
+                mWindow.Structure.Tables[i].Rename(
+                    currentConvention.GetTableName(mWindow.Structure.Tables[i].Name), 
+                    mWindow.Structure.Connection);
+        }
     }
 }

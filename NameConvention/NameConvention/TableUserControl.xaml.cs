@@ -27,7 +27,7 @@ namespace NameConvention
         {
             InitializeComponent();
             structure = _structure;
-
+            
             for (int i = 0; i < structure.Tables.Count; i++)
                 ListTables.Items.Add(structure.Tables[i].Name);
             textBoxChangedDB.Text = structure.DataBaseName;
@@ -95,6 +95,20 @@ namespace NameConvention
             structure.RenameDataBase(textBoxChangedDB.Text);
             structure.FillStructure(structure.Connection);
             textBoxChangedDB.Text = structure.DataBaseName;
+        }
+
+        public void Update(DbStructure _structure)
+        {
+            if (structure.Tables.Count != 0)
+            {
+                structure = _structure;
+                ListTables.UnselectAll();
+                ListTables.Items.Clear();
+                for (int i = 0; i < structure.Tables.Count; i++)
+                    ListTables.Items.Add(structure.Tables[i].Name);
+                textBoxChangedDB.Text = structure.DataBaseName;
+                ListColums.Items.Clear();
+            }
         }
     }
 }

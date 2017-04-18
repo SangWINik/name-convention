@@ -35,6 +35,7 @@ namespace NameConvention
             _mainWindow.Structure = new DbStructure();
             _mainWindow.Structure.FillStructure(Connector.GetConnection(NameTextBox.Text, PasswordTextBox.Text, DBTextBox.Text));
             _mainWindow.tableUserControl = new TableUserControl(_mainWindow.Structure);
+            _mainWindow.DataMenu.IsEnabled = true;
             _mainWindow.generalFrame.Navigate(_mainWindow.tableUserControl);
         }
     }
