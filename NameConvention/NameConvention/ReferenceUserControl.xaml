@@ -5,14 +5,48 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NameConvention"
              mc:Ignorable="d" 
-             d:DesignHeight="Auto" d:DesignWidth="800">
+              d:DesignHeight="400" d:DesignWidth="800">
     <Grid>
-        <Label FontSize="20" x:Name="labelName" Margin="0,0,0,-310">Довідка</Label>
-        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="Auto" Margin="0,40,0,-157" VerticalAlignment="Top" 
-                     Width="800" IsReadOnly="True">
+        <Label FontSize="20" x:Name="labelName" Margin="0,0,0,-310" VerticalAlignment="Top" FontStyle="Italic">
+            <Label x:Name="labelop" Content="Опис створення конвеншинів імен в базі даних" FontWeight="Bold" Foreground="#FF191616"/>
+        </Label>
+
+        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="59" Margin="0,49,0,0" VerticalAlignment="Top" 
+                     IsReadOnly="True" Background="White">
             <FlowDocument>
-                <Paragraph FontSize="16">NameConvention - програма для опису конвеншинів іменування об'єктів у базі даних, аналізу імен існуючих об'єктів та перейменування існуюючих об'єктів згідно з конвеншинами.</Paragraph>
+                <Paragraph FontSize="16" Padding="100,0,0,0">
+                    <Run Text="Всі ключові слова мають починатись і закінчуватись символом &quot;:&quot;.
+                                          Будь-який текст, що не є ключовим словом буде переданий в нову назву дослівно."/>
+                </Paragraph>
             </FlowDocument>
         </RichTextBox>
+        <RichTextBox x:Name="richTextBox1" Height="49" Margin="0,159,0,0" VerticalAlignment="Top" IsReadOnly="True">
+            <FlowDocument>
+                <Paragraph FontSize="16" Padding="100,0,0,0">
+                    <Run Text="mainPart - старе ім'я таблиці з малої букви 
+                         
+                         
+                              MainPart - старе ім'я таблиці з великої букви"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <RichTextBox x:Name="richTextBox2" HorizontalAlignment="Left" Height="92" Margin="0,276,0,0" VerticalAlignment="Top" 
+                      IsReadOnly="True">
+            <FlowDocument>
+                <Paragraph FontSize="16" Padding="100,0,0,0">
+                    <Run Text="mainPart - старе ім'я колонки (первинного ключа) з малої букви 
+                         
+                               MainPart - старе ім'я колонки (первинного ключа) з великої букви 
+                         
+                               tName - ім'я таблиці () з малої букви
+                         
+                         
+                         
+                               TName - ім'я таблиці (колонки, ключа) з великої букви"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Label x:Name="label" Content="Ключові слова для шаблонів назв таблиць:" HorizontalAlignment="Left" Margin="40,113,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="labelp" Content="Ключові слова для шаблонів назв колонок та первинних ключів:" HorizontalAlignment="Left" Margin="40,210,0,0" VerticalAlignment="Top" FontSize="20"/>
     </Grid>
 </UserControl>
