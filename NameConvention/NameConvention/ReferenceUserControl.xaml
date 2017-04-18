@@ -30,7 +30,7 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <RichTextBox x:Name="richTextBox2" HorizontalAlignment="Left" Height="92" Margin="0,276,0,0" VerticalAlignment="Top" 
+        <RichTextBox x:Name="richTextBox2" HorizontalAlignment="Left" Height="92" Margin="0,255,0,0" VerticalAlignment="Top" 
                       IsReadOnly="True">
             <FlowDocument>
                 <Paragraph FontSize="16" Padding="100,0,0,0">
@@ -38,11 +38,11 @@
                          
                                MainPart - старе ім'я колонки (первинного ключа) з великої букви 
                          
-                               tName - ім'я таблиці () з малої букви
+                               tName - ім'я таблиці з малої букви
                          
                          
                          
-                               TName - ім'я таблиці (колонки, ключа) з великої букви"/>
+                               TName - ім'я таблиці з великої букви"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
