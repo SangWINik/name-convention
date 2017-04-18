@@ -95,7 +95,14 @@ namespace NameConvention
                 mWindow.Structure.Tables[i].RenameColumnPK(
                     currentConvention.GetPrimaryKeyName(colName, mWindow.Structure.Tables[i].Name),
                     mWindow.Structure.Connection);
-                
+             
+                for(int j = 0; j< mWindow.Structure.Tables[i].Columns.Count; j++)
+                {
+                    mWindow.Structure.Tables[i].RenameColumn(
+                        mWindow.Structure.Tables[i].Columns[j],
+                        currentConvention.GetColumnName(mWindow.Structure.Tables[i].Columns[j].Name, mWindow.Structure.Tables[i].Name),
+                        mWindow.Structure.Connection);
+                }   
             }
 
         }
